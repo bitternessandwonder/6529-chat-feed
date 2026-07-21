@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: 6529-chat-feed
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeployTrigger: commit
+    healthCheckPath: /

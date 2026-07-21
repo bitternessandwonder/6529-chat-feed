@@ -1,0 +1,13 @@
+{
+  "name": "6529-chat-feed",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple read-only feed of public 6529 CHAT drops.",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check public/app.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
