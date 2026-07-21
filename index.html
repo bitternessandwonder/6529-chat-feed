@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A read-only feed of public chat drops from 6529."
+    />
+    <title>6529 Chat Feed</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">READ-ONLY COMMUNITY VIEW</p>
+          <h1>6529 Chat Feed</h1>
+          <p class="intro">
+            Public <strong>CHAT</strong> drops from across the waves returned by
+            the 6529 API.
+          </p>
+        </div>
+
+        <button id="refresh-button" class="button secondary" type="button">
+          Refresh
+        </button>
+      </header>
+
+      <aside class="notice">
+        <strong>What this version includes:</strong> public chats available
+        without wallet login. Private or gated waves require authentication and
+        are not included yet.
+      </aside>
+
+      <section class="toolbar" aria-label="Feed controls">
+        <label class="search">
+          <span>Filter loaded chats</span>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Search message, author, or wave"
+            autocomplete="off"
+          />
+        </label>
+
+        <div class="status-group">
+          <span id="message-count" class="count">0 chats</span>
+          <span id="last-updated" class="updated">Not loaded yet</span>
+        </div>
+      </section>
+
+      <div id="error-box" class="error hidden" role="alert"></div>
+      <div id="loading-box" class="loading">Loading the latest chats…</div>
+      <main id="feed" class="feed" aria-live="polite"></main>
+
+      <div class="load-more-wrap">
+        <button id="load-more-button" class="button primary hidden" type="button">
+          Load older chats
+        </button>
+      </div>
+
+      <footer>
+        This is an independent viewer using the public 6529 API. It does not
+        post, edit, or delete messages.
+      </footer>
+    </div>
+
+    <template id="chat-template">
+      <article class="chat-card">
+        <div class="chat-header">
+          <div class="identity">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <h2 class="author"></h2>
+              <p class="wave"></p>
+            </div>
+          </div>
+          <time class="time"></time>
+        </div>
+
+        <h3 class="title hidden"></h3>
+        <p class="message"></p>
+        <div class="media"></div>
+
+        <div class="chat-footer">
+          <span class="serial"></span>
+          <span class="type-badge">CHAT</span>
+        </div>
+      </article>
+    </template>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
